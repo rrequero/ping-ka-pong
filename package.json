@@ -1,0 +1,22 @@
+{
+	"name": "ping-ka-pong",
+	"version": "1.0.0",
+	"description": "Management app to ping-pong tournaments",
+	"main": "index.js",
+	"scripts": {
+        "ra": "env NODE_ENV=pre node src/app.js",
+		"test": "echo \"Error: no test specified\" && exit 1"
+	},
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/rrequero/ping-ka-pong.git"
+	},
+	"author": "rrequero,j8seangel",
+	"bugs": {
+		"url": "https://github.com/rrequero/ping-ka-pong/issues"
+	},
+	"homepage": "https://github.com/rrequero/ping-ka-pong#readme",
+	"dependencies": {
+		"config": "^1.14.0"
+	}
+}
