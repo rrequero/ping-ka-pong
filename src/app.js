@@ -19,8 +19,8 @@ var onConnectDatabase = function() {
 	var loader = require('./loader');
     var app = koa();
 
-    var publicPath = __dirname + '/public';
-    var viewsPath = __dirname + '/views';
+    var publicPath = path.join(__dirname, 'public');
+    var viewsPath = path.join(__dirname, 'views');
     app.use(views(path.join(viewsPath), {
         cache: true,
         map: {
@@ -41,8 +41,8 @@ var onConnectDatabase = function() {
     loader.loadServices();
 
     loader.loadRoutes();
-
-    app.use(serve(path.join(publicPath)));
+	
+    app.use(serve(publicPath));
     app.use(compress());
 
 

@@ -1,9 +1,15 @@
 {
     "env": "default",
+	"logger":{
+		"name":"ping-ka-pong"	
+	},
     "server": {
         "hostname": "localhost",
         "port": 3000
     },
+	"mongo":{
+		"uri":"mongodb://127.0.0.1:27017/ping-ka-pong"
+	},
     "apiKeys": {
         "twitter": {
             "consumerKey": "",
