@@ -1,6 +1,7 @@
 var cluster = require('cluster');
 var http = require('http');
-var numCPUs = require('os').cpus().length;
+var config = require('config');
+var numCPUs = config.get('server.numThreads') || require('os').cpus().length;
 
 if (cluster.isMaster) {
     // Fork workers.
@@ -12,5 +13,5 @@ if (cluster.isMaster) {
         console.log('worker ' + worker.process.pid + ' died');
     });
 } else {
-    require('./src/index.js')
+    require('./src/app.js')
 }

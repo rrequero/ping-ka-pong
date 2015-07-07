@@ -5,7 +5,8 @@
     "main": "index.js",
     "scripts": {
         "grunt" : "env NODE_ENV=dev grunt | bunyan",
-        "dev": "env NODE_ENV=dev node src/app.js",
+        "dev": "env NODE_ENV=dev node --harmony src/app.js | bunyan",
+		"pre": "env NODE_ENV=pre node --harmony index.js | bunyan",
         "test": "echo \"Error: no test specified\" && exit 1"
     },
     "repository": {

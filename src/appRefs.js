@@ -49,18 +49,22 @@ module.exports = (function() {
     };
 
     var initLogger = function() {
-        var log = bunyan.createLogger({
-            name: config.get('logger.name'),
-            streams: [{
+		var streams = [{
                 path: './log/ping-ka-pong.log',
                 period: '1d', // daily rotation
                 count: 3, // keep 3 back copies
-                level: 'debug'
-            }, {
+                level: config.get('logger.level') || 'debug'
+            }];
+		if(config.get('env') === 'dev'){
+			streams.push({
 
-                level: 'debug',
+                level: config.get('logger.level') || 'debug',
                 stream: process.stdout
-            }]
+            });
+		}
+        var log = bunyan.createLogger({
+            name: config.get('logger.name'),
+            streams: streams
         });
         appRefs.logger = log;
     };

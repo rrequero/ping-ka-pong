@@ -1,7 +1,8 @@
 {
-    "env": "default",
+    "env": "dev",
 	"logger":{
-		"name":"ping-ka-pong"	
+		"name":"ping-ka-pong",
+		"level":"debug"
 	},
     "server": {
         "hostname": "localhost",

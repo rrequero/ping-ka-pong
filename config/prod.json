@@ -1,7 +1,8 @@
 {
     "env": "prod",
 	"logger":{
-		"name":"ping-ka-pong"	
+		"name":"ping-ka-pong",
+		"level":"error"
 	},
     "server": {
         "hostname": "localhost",
