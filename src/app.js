@@ -17,7 +17,10 @@ var onConnectDatabase = function() {
     var serve = require('koa-static');
     var views = require('koa-render');
 	var loader = require('./loader');
+	var cors = require('koa-cors');
+	
     var app = koa();
+	app.use(cors());
 
     var publicPath = path.join(__dirname, 'public');
     var viewsPath = path.join(__dirname, 'views');
