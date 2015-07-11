@@ -18,10 +18,11 @@ var onConnectDatabase = function() {
     var views = require('koa-render');
 	var loader = require('./loader');
 	var cors = require('koa-cors');
+	var koaValidate = require('koa-validate');
 	
     var app = koa();
 	app.use(cors());
-
+	app.use(koaValidate());
     var publicPath = path.join(__dirname, 'public');
     var viewsPath = path.join(__dirname, 'views');
     app.use(views(path.join(viewsPath), {

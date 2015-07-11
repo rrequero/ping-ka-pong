@@ -31,6 +31,7 @@
     "koa-render": "^0.2.1",
     "koa-router": "^5.1.2",
     "koa-static": "^1.4.9",
+    "koa-validate": "^0.2.11",
     "mongoose": "^4.0.6",
     "mongoose-types": "^1.0.3",
     "slug": "^0.9.1",
