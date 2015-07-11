@@ -26,11 +26,16 @@ module.exports = (function(){
 		yield userInstance.persist();
 	};
 	
+	var inject = function(){
+		//inject services
+	};
+	
 	return {
 		find : find,
 		findOne : findOne,
 		count : count,
-		create : create
+		create : create,
+		inject : inject
 	};
 
 }());

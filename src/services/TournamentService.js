@@ -2,7 +2,7 @@
 var appRefs = require('../appRefs');
 var User = appRefs.getModel('User');
 var Tournament = appRefs.getModel('Tournament');
-var User = appRefs.getModel('User');
+var UserService = null;
 var logger = appRefs.getLogger();
 var slug = require('slug');
 module.exports = (function(){
@@ -21,7 +21,7 @@ module.exports = (function(){
 
 	var create = function*(tournament){
 		//TODO: add logged user
-		var user = yield User.findOne({slug:'rareq1987gmailcom'}).exec();
+		var user = yield UserService.findOne({slug:'rareq1987gmailcom'});
 		var tournamentObj = {
 			name: tournament.name,
 			_owner: user._id,
@@ -36,11 +36,16 @@ module.exports = (function(){
 		return tournamentInstance;
 	};
 	
+	var inject = function(){
+		UserService = appRefs.getService('UserService');
+	};
+	
 	return {
 		find : find,
 		findOne : findOne,
 		count : count,
-		create : create
+		create : create,
+		inject: inject
 	};
 
 }());

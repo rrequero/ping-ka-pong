@@ -4,7 +4,6 @@ module.exports = (function() {
     var bunyan = require('bunyan');
     var config = require('config');
 
-
     var appRefs = {};
 
     var getappRefs = function() {
@@ -17,6 +16,13 @@ module.exports = (function() {
         }
         appRefs.services[serviceKey] = serviceValue;
     };
+
+    var setValidator = function(key, value) {
+        if (!appRefs.validators) {
+            appRefs.validators = {};
+        }
+        appRefs.validators[key] = value;
+    };
     var setReference = function(referenceKey, referenceValue) {
         appRefs[referenceKey] = referenceValue;
     };
@@ -27,6 +33,14 @@ module.exports = (function() {
 
     var getService = function(serviceKey) {
         return appRefs.services[serviceKey];
+    };
+
+    var getAllServices = function() {
+        return appRefs.services;
+    };
+
+    var getValidator = function(key) {
+        return appRefs.validators[key];
     };
 
     var getConfiguration = function() {
@@ -49,19 +63,17 @@ module.exports = (function() {
     };
 
     var initLogger = function() {
-		var streams = [{
-                path: './log/ping-ka-pong.log',
-                period: '1d', // daily rotation
-                count: 3, // keep 3 back copies
-                level: config.get('logger.level') || 'debug'
-            }];
-		if(config.get('env') === 'dev'){
-			streams.push({
+        var streams = [{
+            path: config.get('logger.file'),
+            level: config.get('logger.level') || 'debug'
+        }];
+        if (config.get('env') === 'dev') {
+            streams.push({
 
                 level: config.get('logger.level') || 'debug',
                 stream: process.stdout
             });
-		}
+        }
         var log = bunyan.createLogger({
             name: config.get('logger.name'),
             streams: streams
@@ -73,13 +85,16 @@ module.exports = (function() {
         getappRefs: getappRefs,
         setService: setService,
         setReference: setReference,
+        setValidator: setValidator,
         getApp: getApp,
         getService: getService,
         getConfiguration: getConfiguration,
         getLogger: getLogger,
         getModel: getModel,
         setModel: setModel,
-        initLogger: initLogger
+        getValidator: getValidator,
+        initLogger: initLogger,
+        getAllServices: getAllServices
     };
 
 }());

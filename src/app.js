@@ -39,6 +39,8 @@ var onConnectDatabase = function() {
 
     appRefs.setReference('app', app);
     appRefs.setReference('db', mongoose);
+	
+	loader.loadValidators();
     
     loader.loadModels();
 

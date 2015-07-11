@@ -6,6 +6,7 @@ var mount = require('koa-mount');
 var Router = require('koa-router');
 var TournamentRouter = new Router();
 var TournamentService = appRefs.getService('TournamentService');
+var TournamentValidator = appRefs.getValidator('TournamentValidator');
 
 module.exports = function() {
 
@@ -65,18 +66,7 @@ module.exports = function() {
 	 * @apiParam [{Date}] endDate End date of the tournament
 	 *
 	 */
-	TournamentRouter.post('/tournament', function*(next){
-		this.checkBody('name').optional().len(2, 20);
-		if(this.errors){
-			//this.body = this.errors;
-			logger.debug('errors ' , this.errors);
-			this.body = this.errors;
-			this.status = 400;
-			return;
-		}else{
-			yield next;
-		}
-	} ,API.create);
+	TournamentRouter.post('/tournament', TournamentValidator.post ,API.create);
 
 	/**
 	 * @api {get} /tournament/count Request count tournaments

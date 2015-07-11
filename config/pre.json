@@ -2,7 +2,8 @@
     "env": "pre",
 	"logger":{
 		"name":"ping-ka-pong",
-		"level":"info"
+		"level":"info",
+		"file":"./log/ping-ka-pong.log"
 	},
     "server": {
         "hostname": "localhost",
