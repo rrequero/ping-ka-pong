@@ -8,15 +8,17 @@
     "server": {
         "hostname": "localhost",
         "port": 3000,
-		"numThreads": 2
+		"numThreads": 2,
+		"publicUrl":"http://localhost:3000"
     },
 	"mongo":{
 		"uri":"mongodb://127.0.0.1:27017/ping-ka-pong"
 	},
+	"sessionKey":"ping-ka-pong-session",
     "apiKeys": {
         "twitter": {
-            "consumerKey": "",
-            "consumerSecret": ""
+            "consumerKey": "BbmFfulvzRf5RDfx82H9nXjkt",
+            "consumerSecret": "LUd45814vtfxPKl0dhCzKUFIvxwA0YwMnDCvVa6JNMAFx13jsq"
         }
     }
 }

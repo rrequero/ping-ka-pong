@@ -55,7 +55,7 @@ module.exports = function(grunt) {
             },
             jssrc: {
                 files: [
-                    'src/**/*.js'
+                    'src/**/*.[js,html]'
                 ],
                 tasks: ['jshint:src' /*, 'mochaTest:test'*/ , 'express:dev'],
                 options: {

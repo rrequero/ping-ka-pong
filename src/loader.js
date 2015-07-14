@@ -8,6 +8,7 @@ module.exports = (function() {
     var logger = appRefs.getLogger();
     var fs = require('fs');
     var routersPath = __dirname + '/routes/';
+    var securityPath = __dirname + '/security/';
     var servicesPath = __dirname + '/services/';
     var modelsPath = __dirname + '/models/';
     var validatorsPath = __dirname + '/validators/';
@@ -50,7 +51,19 @@ module.exports = (function() {
         logger.debug('Loaded services correctly!');
     };
 
+	 var loadSecurity = function() {
+        logger.debug('Loading security...');
+        var securityFiles = fs.readdirSync(securityPath);
 
+        securityFiles.forEach(function(file) {
+            if (file.lastIndexOf('.js') !== -1) {
+                logger.debug('Loading security %s', securityPath + file);
+                require(securityPath + file)();
+            }
+        });
+
+        logger.debug('Loaded security correctly!');
+    };
 
     var loadRoutes = function() {
         logger.debug('Loading routes...');
@@ -86,7 +99,8 @@ module.exports = (function() {
         loadModels: loadModels,
         loadServices: loadServices,
         loadRoutes: loadRoutes,
-        loadValidators: loadValidators
+        loadValidators: loadValidators,
+        loadSecurity: loadSecurity
     };
 
 }());

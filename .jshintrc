@@ -19,6 +19,7 @@
     "smarttabs": true,
     "white": true,
     "validthis": true,
+	"noyield":true,
     "globals": {
         "module": false,
         "yield": false,
