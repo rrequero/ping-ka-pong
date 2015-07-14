@@ -16,8 +16,12 @@
 	"sessionKey":"",
     "apiKeys": {
         "twitter": {
-            "consumerKey": "BbmFfulvzRf5RDfx82H9nXjkt",
-            "consumerSecret": "LUd45814vtfxPKl0dhCzKUFIvxwA0YwMnDCvVa6JNMAFx13jsq"
-        }
+            "consumerKey": "",
+            "consumerSecret": ""
+        },
+		"google":{
+			"clientID":"",
+			"clientSecret":""
+		}
     }
 }
