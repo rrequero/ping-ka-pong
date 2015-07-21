@@ -1,27 +1,27 @@
 {
     "env": "dev",
-	"logger":{
-		"name":"ping-ka-pong",
-		"level":"debug",
-		"file":"./log/ping-ka-pong.log"
-	},
+    "logger":{
+        "name":"ping-ka-pong",
+        "level":"debug",
+        "file":"./log/ping-ka-pong.log"
+    },
     "server": {
         "hostname": "localhost",
         "port": 3000,
-		"publicUrl":"http://localhost:3000"
+        "publicUrl":"http://localhost:3000"
     },
-	"mongo":{
-		"uri":"mongodb://localhost:27017/ping-ka-pong"
-	},
-	"sessionKey":"ping-ka-pong-session",
+    "mongo":{
+        "uri":"mongodb://192.168.2.200:27017/ping-ka-pong"
+    },
+    "sessionKey":"ping-ka-pong-session",
     "apiKeys": {
         "twitter": {
             "consumerKey": "",
             "consumerSecret": ""
         },
-		"google":{
-			"clientID":"",
-			"clientSecret":""
-		}
+        "google":{
+            "clientID":"",
+            "clientSecret":""
+        }
     }
 }

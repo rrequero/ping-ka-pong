@@ -3,3 +3,5 @@ doc/
 node_modules/
 log/
 npm-debug.log
+src/public/jspm_packages
+config/dev_backup.json
